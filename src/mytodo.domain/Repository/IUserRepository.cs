@@ -1,6 +1,13 @@
+using mytodo.domain.Entities;
+
 namespace mytodo.domain.Repository;
 
 public interface IUserRepository
 {
-    // TODO: Implementar repositório do usuário
+    Task<UserEntity> CreateUserAsync(UserEntity user);
+    Task<UserEntity?> GetUserByEmailAsync(string email);
+    Task<UserEntity> GetUserByIdAsync(int id);
+    Task<List<UserEntity>> GetUsersAsync();
+    Task<UserEntity> UpdateUserAsync(UserEntity user);
+    Task<UserEntity> DeleteUserAsync(UserEntity user);
 }

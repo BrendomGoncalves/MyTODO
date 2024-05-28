@@ -1,6 +1,11 @@
+using mytodo.domain.Entities;
+
 namespace mytodo.domain.Repository;
 
 public interface ITaskRepository
 {
-    // TODO: Implementar repositório da task
+    Task<TaskEntity> CreateTaskAsync(TaskEntity task);
+    Task<TaskEntity> GetTaskByIdAsync(int id);
+    Task<List<TaskEntity>> GetTasksAsync();
+    Task<TaskEntity> DeleteTaskAsync(TaskEntity task);
 }
