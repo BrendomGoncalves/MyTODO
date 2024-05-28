@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using mytodo.data;
+using mytodo.data.Repositories;
+using mytodo.domain.Repository;
 using mytodo.domain.Services;
 using mytodo.ioc.Services;
 
@@ -17,6 +19,9 @@ public static class IoCServiceExtension
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
         // Injeções de Dependência
         services.AddScoped<IEncryptionService, EncryptionService>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<ITaskRepository, TaskRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
 
     private static void ConfigureDbContext(IServiceCollection services, IConfiguration configuration)
