@@ -54,17 +54,17 @@ public class MytodoDbContextInitializer
             PasswordHash = _encryptionService.Encrypt("usertest")
         };
 
-        if (!_context.User.Any())
+        if (!_context.Users.Any())
         {
-            _context.User.Add(userTest);
+            _context.Users.Add(userTest);
             await _context.SaveChangesAsync();
         }
         else
         {
-            var user = await _context.User.FirstOrDefaultAsync(usuario => usuario.Username == "UserTest");
+            var user = await _context.Users.FirstOrDefaultAsync(usuario => usuario.Username == "UserTest");
             if (user == null)
             {
-                _context.User.Add(userTest);
+                _context.Users.Add(userTest);
                 await _context.SaveChangesAsync();
             }
         }
