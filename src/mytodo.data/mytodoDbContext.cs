@@ -5,8 +5,8 @@ namespace mytodo.data;
 
 public class MytodoDbContext : DbContext
 {
-    public DbSet<UserEntity> User { get; set; } = default!;
-    public DbSet<TaskEntity> Task { get; set; } = default!;
+    public DbSet<UserEntity> Users { get; set; } = default!;
+    public DbSet<TaskEntity> Tasks { get; set; } = default!;
     
     public MytodoDbContext(DbContextOptions<MytodoDbContext> options) : base(options){}
     
