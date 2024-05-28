@@ -5,12 +5,12 @@ using mytodo.domain.Services;
 
 namespace mytodo.ioc;
 
-public class InitializeDatabaseApplication
+public class MytodoDbContextInitializer
 {
     private readonly MytodoDbContext _context;
     private readonly IEncryptionService _encryptionService;
 
-    public InitializeDatabaseApplication(MytodoDbContext context, IEncryptionService encryptionService)
+    public MytodoDbContextInitializer(MytodoDbContext context, IEncryptionService encryptionService)
     {
         _context = context;
         _encryptionService = encryptionService;
