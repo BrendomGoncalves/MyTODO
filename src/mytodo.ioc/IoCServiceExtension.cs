@@ -17,11 +17,15 @@ public static class IoCServiceExtension
 
     private static void ConfigureDbContext(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<MytodoDbContext>((sp, options) =>
+        services.AddDbContext<MytodoDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("MytodoDbContext"));
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            var serverVersion = ServerVersion.AutoDetect(connectionString);
+
+            options.UseMySql(connectionString, serverVersion);
         });
 
-        services.AddScoped<InitializeDatabaseApplication>();
+        services.AddScoped<MytodoDbContextInitializer>();
     }
 }
