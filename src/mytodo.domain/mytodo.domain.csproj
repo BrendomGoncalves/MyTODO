@@ -7,7 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Handlers\" />
+      <Folder Include="Handlers\Task\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\mytodo.shareable\mytodo.shareable.csproj" />
     </ItemGroup>
 
 </Project>
