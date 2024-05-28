@@ -1,6 +1,6 @@
 namespace mytodo.domain.Entities;
 
-public class TaskEntity
+public class TaskEntity : BaseEntity
 {
     public int TaskId { get; set; }
     public required string Title { get; set; }
