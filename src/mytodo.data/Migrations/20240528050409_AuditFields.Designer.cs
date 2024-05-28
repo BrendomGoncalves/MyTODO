@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mytodo.data;
 
@@ -10,9 +11,11 @@ using mytodo.data;
 namespace mytodo.data.Migrations
 {
     [DbContext(typeof(MytodoDbContext))]
-    partial class MytodoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240528050409_AuditFields")]
+    partial class AuditFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
