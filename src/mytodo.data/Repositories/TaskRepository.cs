@@ -40,4 +40,10 @@ public class TaskRepository : ITaskRepository
         _context.Tasks.Remove(task);
         return Task.FromResult(task);
     }
+
+    public Task<TaskEntity> UpdateTaskAsync(TaskEntity task)
+    {
+        _context.Tasks.Update(task);
+        return Task.FromResult(task);
+    }
 }
