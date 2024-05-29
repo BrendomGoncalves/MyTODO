@@ -8,4 +8,5 @@ public interface ITaskRepository
     Task<TaskEntity> GetTaskByIdAsync(int id);
     Task<List<TaskEntity>> GetTasksAsync();
     Task<TaskEntity> DeleteTaskAsync(TaskEntity task);
+    Task<TaskEntity> UpdateTaskAsync(TaskEntity task);
 }
