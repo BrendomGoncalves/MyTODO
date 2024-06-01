@@ -6,58 +6,45 @@ public class Cadastro
 {
     public static readonly ResultadoErro Generico = new()
     {
-        Titulo = "Ops ocorreu um erro no nosso sistema",
-        Descricao = "No momento, nosso sistema está indisponível. Por Favor tente novamente",
+        Titulo = "Erro ao processar sua solicitação",
+        Descricao = "No momento, nosso sistema está indisponível. Por favor tente novamente.",
+        Tipo = ETipoErro.Erro
+    };
+    
+    public static readonly ResultadoErro FalhaAoAtualizar = new()
+    {
+        Titulo = "Erro ao processar atualização",
+        Descricao = "Infelizmente, ocorreu um erro ao tentarmos atualizar. Por favor tente novamente.",
+        Tipo = ETipoErro.Erro
+    };
+    
+    public static readonly ResultadoErro FalhaAoDeletar = new()
+    {
+        Titulo = "Erro ao processar deleção",
+        Descricao = "Infelizmente, ocorreu um erro ao tentarmos deletar. Por favor tente novamente.",
+        Tipo = ETipoErro.Erro
+    };
+
+    public static readonly ResultadoErro FalhaAoCriar = new()
+    {
+        Titulo = "Erro ao processar criação",
+        Descricao = "Infelizmente, ocorreu um erro ao tentarmos criar. Por favor tente novamente.",
         Tipo = ETipoErro.Erro
     };
 
     public static readonly ResultadoErro SemResultados = new()
     {
-        Titulo = "Sua busca não obteve resultados",
-        Descricao = "Tente buscar novamente",
+        Titulo = "Busca sem resultados",
+        Descricao =
+            "Infelizmente, não encontramos resultados para sua solicitação. Tente novamente com outros parâmetros.",
         Tipo = ETipoErro.Alerta
     };
 
-    public static ResultadoErro ErroGravacaoUsuario = new()
+    public static readonly ResultadoErro BuscaNaoEncontrada = new()
     {
-        Titulo = "Ocorreu um erro na gravação",
-        Descricao = "Ocorreu um erro na gravação do usuário. Por favor tente novamente",
-        Tipo = ETipoErro.Erro
-    };
-
-    public static ResultadoErro DadosInvalidos = new()
-    {
-        Titulo = "Dados inválidos",
-        Descricao = "Os dados enviados na requisição são inválidos",
-        Tipo = ETipoErro.Erro
-    };
-
-    
-     public static ResultadoErro ErroGravacaoTipoRegistro = new()
-    {
-        Titulo = "Ocorreu um erro na gravação",
-        Descricao = "Ocorreu um erro na gravação do tido de registro. Por favor tente novamente",
-        Tipo = ETipoErro.Erro
-    };
-
-    public static ResultadoErro ErroDeletarTipoRegistro = new()
-    {
-        Titulo = "Ocorreu um erro ao deletar",
-        Descricao = "Ocorreu um erro ao deletar o tipo de registro. Por favor tente novamente",
-        Tipo = ETipoErro.Erro
-    };
-
-    public static ResultadoErro ErroDeletarBanco = new()
-    {
-        Titulo = "Ocorreu um erro ao deletar",
-        Descricao = "Ocorreu um erro ao deletar o banco. Por favor tente novamente",
-        Tipo = ETipoErro.Erro
-    };
-
-    public static ResultadoErro ErroLeituraTipoRegistro = new()
-    {
-        Titulo = "Ocorreu um erro na leitura",
-        Descricao = "Ocorreu um erro na leitura do tipo de registro. Por favor tente novamente",
-        Tipo = ETipoErro.Erro
+        Titulo = "Busca sem resultados",
+        Descricao =
+            "Infelizmente, não encontramos resultados para sua solicitação. Verifique se o ID fornecido existe.",
+        Tipo = ETipoErro.Alerta
     };
 }
