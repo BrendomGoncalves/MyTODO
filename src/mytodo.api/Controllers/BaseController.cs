@@ -35,7 +35,7 @@ public class BaseController : ControllerBase
         _ => BadRequest(FormatErrorMessage(shareable.Enums.Cadastro.Generico))
     };
 
-    private ResultadoErro FormatErrorMessage(ResultadoErro responseErro, IEnumerable<string>? errors = null)
+    private static ResultadoErro FormatErrorMessage(ResultadoErro responseErro, IEnumerable<string>? errors = null)
     {
         if (errors != null)
         {
