@@ -1,9 +1,11 @@
 using MediatR;
 using mytodo.domain.Entities;
 using mytodo.domain.Repository;
+using mytodo.shareable.Excecoes;
 using mytodo.shareable.Requests.Task;
 using mytodo.shareable.Responses.Task;
 using OperationResult;
+using static mytodo.shareable.Enums.Cadastro;
 
 namespace mytodo.domain.Handlers.Task;
 
@@ -23,15 +25,23 @@ public class CreateTaskRequestHandler : IRequestHandler<CreateTaskRequest, Resul
         var task = new TaskEntity
         {
             Title = request.Title,
-            Description = request.Description,
-            DueDate = request.DueDate,
+            Description = request.Description ?? "Sem descrição",
+            DataVencimento = request.DataVencimento ?? new DateOnly(1, 1, 1),
             Status = request.Status,
             Priority = request.Priority,
             UserId = request.UserId
         };
 
-        await _taskRepository.CreateTaskAsync(task);
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        try
+        {
+            await _taskRepository.CreateTaskAsync(task);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+        }
+        catch
+        {
+            return Result.Error<CreateTaskResponse>(
+                new ExcecaoAplicacao(FalhaAoCriar));
+        }
 
         return Result.Success(new CreateTaskResponse(task.TaskId, task.Title));
     }
