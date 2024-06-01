@@ -23,4 +23,20 @@ public class EncryptionService : IEncryptionService
 
         return $"{Convert.ToBase64String(salt)}:{hashed}";
     }
+    
+    public bool Verify(string password, string passwordHash)
+    {
+        var parts = passwordHash.Split(':');
+        var salt = Convert.FromBase64String(parts[0]);
+        var hash = Convert.FromBase64String(parts[1]);
+
+        var hashed = KeyDerivation.Pbkdf2(
+            password: password,
+            salt: salt,
+            prf: KeyDerivationPrf.HMACSHA256,
+            iterationCount: 10000,
+            numBytesRequested: 256 / 8);
+
+        return hashed.SequenceEqual(hash);
+    }
 }
