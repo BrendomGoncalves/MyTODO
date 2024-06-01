@@ -5,7 +5,7 @@ namespace mytodo.data.Repositories;
 public class UnitOfWork : IUnitOfWork
 {
     private readonly MytodoDbContext _context;
-    private Dictionary<Type, object> _repositories;
+    private readonly Dictionary<Type, object> _repositories;
     
     public UnitOfWork(MytodoDbContext context)
     {
@@ -16,9 +16,9 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<T> Repository<T>()
         where T : class
     {
-        if (_repositories.ContainsKey(typeof(T)))
+        if (_repositories.TryGetValue(typeof(T), out var value))
         {
-            return (IRepository<T>)_repositories[typeof(T)];
+            return (IRepository<T>)value;
         }
 
         var repository = new Repository<T>(_context);
