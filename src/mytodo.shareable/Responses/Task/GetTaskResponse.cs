@@ -4,7 +4,7 @@ public record GetTaskResponse(
     int TaskId,
     string Title,
     string? Description,
-    DateTime DueDate,
+    DateOnly DataVencimento,
     string Status,
     string Priority,
     int UserId

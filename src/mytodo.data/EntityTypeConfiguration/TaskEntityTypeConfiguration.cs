@@ -18,7 +18,7 @@ public class TaskEntityTypeConfiguration : IEntityTypeConfiguration<TaskEntity>
         builder.Property(task => task.Description)
             .HasMaxLength(500);
 
-        builder.Property(task => task.DueDate)
+        builder.Property(task => task.DataVencimento)
             .IsRequired();
 
         builder.Property(task => task.Status)

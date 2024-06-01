@@ -18,6 +18,7 @@ public class GetAllUserRequestHandler : IRequestHandler<GetAllUserRequest, Resul
     public async Task<Result<List<GetUserResponse>>> Handle(GetAllUserRequest request, CancellationToken cancellationToken)
     {
         var users = await _userRepository.GetUsersAsync();
+        
         return Result.Success(
             users.Select(user => new GetUserResponse(user.UserId, user.Username, user.Email)).ToList()
         );
