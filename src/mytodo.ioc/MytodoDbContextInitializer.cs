@@ -25,9 +25,7 @@ public class MytodoDbContextInitializer
         }
         catch(Exception ex)
         {
-            // TODO: configurar mensagem de erro
-            Console.WriteLine(ex.Message);
-            throw;
+            throw new Exception("Erro ao inicializar o banco de dados", ex);
         }
     }
 
@@ -39,9 +37,7 @@ public class MytodoDbContextInitializer
         }
         catch (Exception ex)
         {
-            // TODO: configurar mensagem de erro
-            Console.WriteLine(ex.Message);
-            throw;
+            throw new Exception("Erro ao semear o banco de dados", ex);
         }
     }
 
