@@ -19,14 +19,9 @@ public class UserRepository : IUserRepository
         return Task.FromResult(user);
     }
 
-    public async Task<UserEntity> GetUserByIdAsync(int id)
+    public async Task<UserEntity?> GetUserByIdAsync(int id)
     {
         var user = await _context.Users.FirstOrDefaultAsync(user => user.UserId == id);
-        if (user == null)
-        {
-            // TODO: Criar exceção personalizada
-            throw new Exception("User not found");
-        }
         return user;
     }
 

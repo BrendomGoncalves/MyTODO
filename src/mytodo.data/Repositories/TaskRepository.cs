@@ -19,14 +19,9 @@ public class TaskRepository : ITaskRepository
         return Task.FromResult(task);
     }
 
-    public async Task<TaskEntity> GetTaskByIdAsync(int id)
+    public async Task<TaskEntity?> GetTaskByIdAsync(int id)
     {
         var task = await _context.Tasks.FirstOrDefaultAsync(task => task.TaskId == id);
-        if (task == null)
-        {
-            // TODO: Criar exceção personalizada
-            throw new Exception("Task not found");
-        }
         return task;
     }
 
