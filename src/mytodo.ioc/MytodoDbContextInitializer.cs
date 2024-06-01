@@ -23,7 +23,7 @@ public class MytodoDbContextInitializer
             await _context.Database.EnsureCreatedAsync();
             await _context.Database.MigrateAsync();
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             throw new Exception("Erro ao inicializar o banco de dados", ex);
         }
@@ -47,14 +47,16 @@ public class MytodoDbContextInitializer
         {
             Username = "UserTest",
             Email = "user@test.com",
-            PasswordHash = _encryptionService.Encrypt("usertest")
+            PasswordHash = _encryptionService.Encrypt("usertest"),
+            CreatedAt = DateTime.Now,
+            UpdatedAt = DateTime.Now
         };
-
         if (!_context.Users.Any())
         {
             _context.Users.Add(userTest);
             await _context.SaveChangesAsync();
         }
+
         else
         {
             var user = await _context.Users.FirstOrDefaultAsync(usuario => usuario.Username == "UserTest");
