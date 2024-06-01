@@ -40,6 +40,8 @@ public class UpdateTaskRequestHandler : IRequestHandler<UpdateTaskRequest, Resul
         if (request.Priority != null && request.Priority != task.Priority)
             task.Priority = request.Priority;
 
+        task.UpdatedAt = DateTime.Now;
+
         try
         {
             await _taskRepository.UpdateTaskAsync(task);

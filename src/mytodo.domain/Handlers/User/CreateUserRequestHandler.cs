@@ -30,7 +30,9 @@ public class CreateUserRequestHandler : IRequestHandler<CreateUserRequest, Resul
         {
             Username = request.UserName,
             Email = request.Email,
-            PasswordHash = _encryptionService.Encrypt(request.PasswordHash)
+            PasswordHash = _encryptionService.Encrypt(request.PasswordHash),
+            CreatedAt = DateTime.Now,
+            UpdatedAt = DateTime.Now
         };
 
         try

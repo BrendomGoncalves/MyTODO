@@ -41,6 +41,8 @@ public class UpdateUserRequestHandler : IRequestHandler<UpdateUserRequest, Resul
             if (!_encryptionService.Verify(request.PasswordHash, user.PasswordHash))
                 user.PasswordHash = _encryptionService.Encrypt(request.PasswordHash);
         }
+        
+        user.UpdatedAt = DateTime.Now;
 
         try
         {

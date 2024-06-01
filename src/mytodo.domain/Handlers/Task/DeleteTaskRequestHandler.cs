@@ -29,6 +29,8 @@ public class DeleteTaskRequestHandler : IRequestHandler<DeleteTaskRequest, Resul
                 new ExcecaoAplicacao(BuscaNaoEncontrada));
         }
 
+        taskEncontrada.DeletedAt = DateTime.Now;
+        
         try
         {
             await _taskRepository.DeleteTaskAsync(taskEncontrada);

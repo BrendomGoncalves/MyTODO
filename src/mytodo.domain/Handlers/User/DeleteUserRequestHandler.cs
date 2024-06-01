@@ -28,6 +28,8 @@ public class DeleteUserRequestHandler : IRequestHandler<DeleteUserRequest, Resul
             return Result.Error<DeleteUserResponse>(new ExcecaoAplicacao(BuscaNaoEncontrada));
         }
 
+        user.DeletedAt = DateTime.Now;
+        
         try
         {
             await _userRepository.DeleteUserAsync(user);

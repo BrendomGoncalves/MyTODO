@@ -29,7 +29,9 @@ public class CreateTaskRequestHandler : IRequestHandler<CreateTaskRequest, Resul
             DataVencimento = request.DataVencimento ?? new DateOnly(1, 1, 1),
             Status = request.Status,
             Priority = request.Priority,
-            UserId = request.UserId
+            UserId = request.UserId,
+            CreatedAt = DateTime.Now,
+            UpdatedAt = DateTime.Now
         };
 
         try
