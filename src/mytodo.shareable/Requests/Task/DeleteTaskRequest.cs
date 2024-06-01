@@ -6,5 +6,5 @@ namespace mytodo.shareable.Requests.Task;
 
 public class DeleteTaskRequest : IRequest<Result<DeleteTaskResponse>>
 {
-    public int TaskId { get; set; }
+    public required int TaskId { get; set; }
 }

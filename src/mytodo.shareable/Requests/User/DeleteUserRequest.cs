@@ -6,5 +6,5 @@ namespace mytodo.shareable.Requests.User;
 
 public class DeleteUserRequest : IRequest<Result<DeleteUserResponse>>
 {
-    public int UserId { get; set; }
+    public required int UserId { get; set; }
 }

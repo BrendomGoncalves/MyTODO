@@ -6,5 +6,5 @@ namespace mytodo.shareable.Requests.User;
 
 public class GetUserRequest : IRequest<Result<GetUserResponse>>
 {
-    public int UserId { get; set; }
+    public required int UserId { get; set; }
 }
