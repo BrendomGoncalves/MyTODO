@@ -28,18 +28,18 @@ public class BaseController : ControllerBase
             var (_, res, error) => HandleError(error)
         };
 
-    private ActionResult HandleError(Exception? error) => error switch
+    protected ActionResult HandleError(Exception? error) => error switch
     {
         SemResultadosExcecao e => NoContent(),
         ExcecaoAplicacao erro => BadRequest(FormatErrorMessage(erro.ResponseErro)),
         _ => BadRequest(FormatErrorMessage(shareable.Enums.Cadastro.Generico))
     };
 
-    private static ResultadoErro FormatErrorMessage(ResultadoErro responseErro, IEnumerable<string>? errors = null)
+    protected ResultadoErro FormatErrorMessage(ResultadoErro responseErro, IEnumerable<string>? errors = null)
     {
         if (errors != null)
         {
-            responseErro.Descricao = $"{responseErro.Descricao} : {string.Join("; ", errors!)}";
+            responseErro.Descricao = $"{responseErro.Descricao} : {string.Join("; ", errors)}";
         }
 
         return responseErro;
