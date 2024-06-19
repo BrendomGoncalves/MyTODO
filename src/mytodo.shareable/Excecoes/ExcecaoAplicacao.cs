@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace mytodo.shareable.Excecoes;
 
+[ExcludeFromCodeCoverage]
 public class ExcecaoAplicacao : Exception
 {
     public ExcecaoAplicacao(ResultadoErro erro)

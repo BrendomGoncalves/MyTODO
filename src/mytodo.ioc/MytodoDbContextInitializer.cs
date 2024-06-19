@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using mytodo.data;
 using mytodo.domain.Entities;
@@ -5,6 +6,7 @@ using mytodo.domain.Services;
 
 namespace mytodo.ioc;
 
+[ExcludeFromCodeCoverage]
 public class MytodoDbContextInitializer
 {
     private readonly MytodoDbContext _context;

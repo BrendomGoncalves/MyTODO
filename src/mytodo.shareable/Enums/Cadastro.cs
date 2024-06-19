@@ -1,7 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using mytodo.shareable.Excecoes;
 
 namespace mytodo.shareable.Enums;
 
+[ExcludeFromCodeCoverage]
 public class Cadastro
 {
     public static readonly ResultadoErro Generico = new()

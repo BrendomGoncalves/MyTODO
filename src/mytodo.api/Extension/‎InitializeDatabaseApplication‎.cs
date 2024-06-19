@@ -1,7 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using mytodo.ioc;
 
 namespace mytodo.api.Extension;
 
+[ExcludeFromCodeCoverage]
 public static class InitializeDatabaseApplication
 {
     public static async Task InitialiseDatabaseAsync(this WebApplication application)

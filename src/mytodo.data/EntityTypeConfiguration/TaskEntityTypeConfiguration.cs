@@ -1,9 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using mytodo.domain.Entities;
 
 namespace mytodo.data.EntityTypeConfiguration;
 
+[ExcludeFromCodeCoverage]
 public class TaskEntityTypeConfiguration : IEntityTypeConfiguration<TaskEntity>
 {
     public void Configure(EntityTypeBuilder<TaskEntity> builder)

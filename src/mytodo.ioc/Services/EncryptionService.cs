@@ -1,9 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using mytodo.domain.Services;
 
 namespace mytodo.ioc.Services;
 
+[ExcludeFromCodeCoverage]
 public class EncryptionService : IEncryptionService
 {
     public string Encrypt(string password)

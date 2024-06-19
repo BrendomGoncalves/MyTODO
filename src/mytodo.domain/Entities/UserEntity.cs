@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace mytodo.domain.Entities;
 
+[ExcludeFromCodeCoverage]
 public class UserEntity : BaseEntity
 {
     public int UserId { get; set; }

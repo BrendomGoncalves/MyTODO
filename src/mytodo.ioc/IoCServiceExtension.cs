@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,7 @@ using mytodo.ioc.Services;
 
 namespace mytodo.ioc;
 
+[ExcludeFromCodeCoverage]
 public static class IoCServiceExtension
 {
     public static void ConfigureAppDependencies(this IServiceCollection services, IConfiguration configuration)
